@@ -1,0 +1,81 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+
+.browser {
+  width: 20vw;
+}
+
+.browser-container {
+  margin: 20px 0px 20px 0px;
+}
+
+img {
+  display: block;
+  width: 100px;
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+  
+}
+
+.container {
+  padding-bottom: 100px;
+}
+
+.card {
+  width: 10vw;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  width: 15vw;
+  background-color: #474747;
+  color: white;
+}
+
+.table-subtitle {
+  font-size: 15px;
+  text-align: start;
+  color: #868686;
+}
+
+.table-data {
+  width: 100%;
+  text-align: end;
+  color: #dfdfdf;
+  font-size: 15px;
+}
+
+.table-row {
+  border-bottom: #868686;
+}

@@ -1,0 +1,51 @@
+<div class="column" layout="column">
+    <div class="row browser-container" layout="row" layout-align="center center">
+        <md-input-container layout="row" flex="20">
+            <label>Search videogame by title</label>
+            <input ng-model="browser.text" class="browser">
+        </md-input-container>
+
+        <md-button layout="row" flex="5" md-no-ink class="md-primary" ng-click="searchVideoGame(browser.text)">Search</md-button>
+    </div>
+    <md-content class="md-padding container" layout-xs="column" layout="column" layout-align="center center">
+        <div ng-repeat="row in grid" flex="100" layout="row" layout-align="center center">
+          <div ng-repeat="item in row" layout="row" layout-align="center center" layout-margin class="box">
+            <md-card 
+              ng-mouseenter="item.hover = true" 
+              ng-mouseleave="item.hover = false"
+              ng-init="item.hover = false"
+              class="card"
+            >
+
+              <img ng-src="{{item.background_image}}"  class=" videogame-Image" alt="Washed Out">
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">{{item.name}}</span>
+                </md-card-title-text>
+              </md-card-title>
+
+              <md-card-content>
+                <div ng-class="{'visible': item.hover, 'invisible': !item.hover}" layout="row" flex>
+                  <table>
+                    <tr class="table-row">
+                      <td class="table-subtitle">Released:</td>
+                      <td class="table-data"> {{ item.released | date:'longDate' }} </td>
+                    </tr>
+
+                    <tr class="table-row final">
+                      <td class="table-subtitle">Genres:</td>
+                      <td class="table-data">  
+                        <span ng-repeat-start="genre in item.genres"> {{ genre.name }} </span>
+                        <span ng-repeat-end> {{$last ? '' : ', '}} </span>
+                      </td>
+                    </tr>
+
+                  </table>
+                </div>
+              </md-card-content>
+
+            </md-card>
+          </div>
+        </div>
+    </md-content>
+</div>
